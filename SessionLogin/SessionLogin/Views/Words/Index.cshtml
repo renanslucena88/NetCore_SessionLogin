@@ -1,0 +1,63 @@
+﻿@model IEnumerable<SessionLogin.Models.Word>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Add Word", "AddWord", "Words", null, new { @class = "btn btn-primary btn-large" })
+    </p>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.WordName)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Difficult)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @if (Model != null)
+            {
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.WordName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Difficult)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "UpdWord", new { id = item.Id }) |
+                            @*@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
+                            @Html.ActionLink("Delete", "DelWord", new { id = item.Id })
+                        </td>
+                    </tr>
+                }
+            }
+
+        </tbody>
+    </table>
+</body>
+</html>

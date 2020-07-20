@@ -1,0 +1,36 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>LOGIN</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <form method="post" action="/Home/login">
+            <div class="form-group">
+                <label for="txtEmail">E-mail</label>
+                <input type="email" name="Email" class="form-control" id="txtEmail" placeholder="Email is renanestudos88@gmail.com ">
+                @Html.ValidationMessage("Email")
+            </div>
+            <div class="form-group">
+                <label for="txtPassword">E-mail</label>
+                <input type="password" name="Password" class="form-control" id="txtPassword" placeholder="Password is 123456">
+                @Html.ValidationMessage("Password")
+           </div>
+            <div>
+                @ViewBag.Message
+            </div>
+            <br />
+            
+            <button type="submit" class="btn btn-primary">Send</button>
+        </form>
+    </div>
+</body>
+</html>
